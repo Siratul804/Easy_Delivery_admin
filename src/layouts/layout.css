@@ -1,0 +1,81 @@
+.NavBar {
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 70%);
+    background-color: black !important;
+
+}
+
+.nav_item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.com_name {
+    color: #1C2123;
+    font-family: "Pacifico", Sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.logo {
+    font-size: 20px;
+    margin: 15px 500px 15px 500px ;
+    padding: 20px;
+    font-weight: 700;
+    border: solid 2px  black;
+}
+
+.foot_about {
+    font-family: "Rubik", Sans-serif;
+}
+
+.nav_link_logo {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Rubik", Sans-serif;
+    text-transform: uppercase;
+    border-style:  solid   ;
+    padding: 5px 15px 5px 15px ;
+}
+.nav_link_logo:hover {
+    color: white !important;
+  }
+
+.nav_link {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Rubik", Sans-serif;
+}
+
+.nav_link:hover {
+    color: #DC9457 !important;
+  }
+.nav_link:active {
+    color: #DC9457 !important;
+}
+
+.nav_link_active {
+      color: #DC9457 ;
+
+  }
+
+
+  @media only screen and (max-width: 600px) {
+
+    
+.logo {
+    font-size: 20px;
+    margin: auto ;
+    padding: 15px;
+    font-weight: 700;
+    border: solid 2px  black;
+}
+  
+}

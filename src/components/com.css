@@ -1,0 +1,125 @@
+.login {
+    width: 1366px;
+    height: 625px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1C1C1C;
+}
+.SignUp {
+    width: 1366px;
+    height: 549px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1C1C1C;
+}
+
+.logBtn {
+    background-color: #DC9457 !important ;
+    border: none !important;
+    font-weight: bold !important;
+}
+
+.logInInput {
+    width: 270px !important;
+}
+
+.login_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 10px rgb(0 0 0 / 15%);
+    padding: 50px;
+    width: 400px;
+    height: 350px;
+    background-color: black;
+    
+}
+.SignUp_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 10px rgb(0 0 0 / 15%);
+    padding: 50px;
+    width: 600px;
+    height: 350px;
+    background-color: black;
+    
+}
+
+.signUp_input_div {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.signUp {
+    background-color: #4A4A4A;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .signUp_input_div {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        
+    }
+    
+
+    .SignUp {
+        width: 355px;
+        height: 660px;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: #1C1C1C;
+    }
+    
+
+    .SignUp_section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 10px rgb(0 0 0 / 15%);
+        padding: 50px;
+        width: 300px;
+        height: 350px;
+        background-color: black;
+        
+    }
+
+    
+    .login_section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 10px rgb(0 0 0 / 15%);
+        padding: 50px;
+        width: 300px;
+        height: 350px;
+        background-color: black;
+        
+    }
+
+    .login {
+        width: 359px;
+        height: 660px;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1C1C1C;
+    }
+      
+    }
