@@ -8,6 +8,7 @@ import { Scrollbars } from "react-custom-scrollbars-2";
 
 function Oder() {
   const [res, setRes] = useState([]);
+
   // const [isLoading, setLoading] = useState([]);
 
   // const fetchOders = async () => {
@@ -52,6 +53,8 @@ function Oder() {
         </div>
         <div className="Dashboard_content">
           <Scrollbars>
+            {/* socket */}
+
             <div className="container">
               {res.map((res) => {
                 return (

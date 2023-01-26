@@ -16,8 +16,28 @@ import UserContext from "../../context/UserContext";
 
 import Axios from "axios";
 
+import { io } from "socket.io-client";
+
 function GlobalDash() {
   const { setUserData } = useContext(UserContext);
+  const [notification, setNotification] = useState([]);
+
+  useEffect(() => {
+    const socket = io("http://localhost:8000");
+    socket.on("receive_oder", (data) => {
+      setNotification((prev) => [...prev, data]);
+      console.log(data.table.length);
+    });
+  }, []);
+
+  const displayNotification = ({ type }) => {
+    let action;
+
+    if (type === 1) {
+      action = "New Oder ! ";
+    }
+    return <span className="new_oder"> {action} </span>;
+  };
 
   const [res, setRes] = useState([]);
 
@@ -26,7 +46,6 @@ function GlobalDash() {
       .then((res) => {
         setRes(res.data);
         console.log(res.data);
-        console.log(res.data.length);
       })
       .catch(() => {
         console.log("ERR");
@@ -67,13 +86,13 @@ function GlobalDash() {
         </h5>
       </NavLink>
       <p></p>
-      <NavLink
-        to="/oder"
+      <a
+        href="/oder"
         className="dash_link p-2 "
         activeClassName="dash_link_active"
       >
         <h5>
-          <AiOutlineCodepen /> Oders{" "}
+          <AiOutlineCodepen /> Oders
           <span
             style={{
               backgroundColor: "red",
@@ -83,8 +102,9 @@ function GlobalDash() {
           >
             {res.length}
           </span>
+          <div>{notification.map((data) => displayNotification(data))}</div>
         </h5>
-      </NavLink>
+      </a>
       <p></p>
       <NavLink
         to="/reviews"

@@ -2,6 +2,10 @@
     display: flex;
   }
 
+  .new_oder {
+    font-size: 10px;
+    color: red;
+  }
 
 .dashboard_box {
   background-color: black;
