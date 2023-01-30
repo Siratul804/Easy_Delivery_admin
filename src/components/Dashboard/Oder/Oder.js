@@ -4,33 +4,17 @@ import { Table, Button } from "react-bootstrap";
 import "../dash.css";
 import GlobalDash from "../GlobalDash";
 
+import { API_URL } from "../../../constants";
+
 import { Scrollbars } from "react-custom-scrollbars-2";
 
 function Oder() {
   const [res, setRes] = useState([]);
 
-  // const [isLoading, setLoading] = useState([]);
-
-  // const fetchOders = async () => {
-  //   try {
-  //     setLoading(true);
-  //     const response = await Axios.get("http://localhost:8000/api/get/oder");
-  //     const oders = response.data;
-
-  //     if (oders) setRes(oders);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  //   setLoading(false);
-  // };
-
-  // useEffect(() => {
-  //   fetchOders();
-  // }, []);
-
-  // if (isLoading) return <div>Loading....</div>;
   useEffect(() => {
-    Axios.get("http://localhost:8000/api/get/oder")
+    const url = `${API_URL}/api/get/oder`;
+
+    Axios.get(url)
       .then((res) => {
         setRes([...res.data]);
       })
@@ -40,7 +24,9 @@ function Oder() {
   }, []);
 
   const DeleteOder = (id) => {
-    Axios.delete(`http://localhost:8000/api/delete/oder/${id}`).then(() => {
+    const url = `${API_URL}/api/delete/oder/${id}`;
+
+    Axios.delete(url).then(() => {
       window.location.reload();
     });
   };

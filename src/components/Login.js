@@ -8,6 +8,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Dash from "./Dashboard/Dash";
 
+import { API_URL } from "../constants";
+
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -20,10 +22,8 @@ function Login() {
     e.preventDefault();
     try {
       const loginUser = { email, password };
-      const loginRes = await Axios.post(
-        "http://localhost:8000/api/admin/SignIn",
-        loginUser
-      );
+      const url = `${API_URL}/api/admin/SignIn`;
+      const loginRes = await Axios.post(url, loginUser);
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user,

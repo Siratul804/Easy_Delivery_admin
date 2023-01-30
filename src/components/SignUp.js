@@ -8,6 +8,8 @@ import Form from "react-bootstrap/Form";
 import Axios from "axios";
 import ErrorNotice from "../misc/ErrorNotice";
 
+import { API_URL } from "../constants";
+
 function SignUp() {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
@@ -22,14 +24,13 @@ function SignUp() {
     e.preventDefault();
     try {
       const newUser = { name, email, password, passwordCheck, displayName };
-      await Axios.post("http://localhost:8000/api/admin/SignUp", newUser);
-      const loginRes = await Axios.post(
-        "http://localhost:8000/api/admin/SignIn",
-        {
-          email,
-          password,
-        }
-      );
+      const url_S = `${API_URL}/api/admin/SignUp`;
+      await Axios.post(url_S, newUser);
+      const url_L = `${API_URL}/api/admin/SignIn`;
+      const loginRes = await Axios.post(url_L, {
+        email,
+        password,
+      });
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user,

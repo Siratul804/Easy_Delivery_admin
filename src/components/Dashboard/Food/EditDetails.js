@@ -7,6 +7,9 @@ import { Form, Button } from "react-bootstrap";
 import "../dash.css";
 import GlobalDash from "../GlobalDash";
 
+import { API_URL } from "../../../constants";
+import { IMG_URL } from "../../../constants";
+
 import { Scrollbars } from "react-custom-scrollbars-2";
 
 function EditDetails() {
@@ -26,7 +29,9 @@ function EditDetails() {
 
   useEffect(() => {
     async function getData() {
-      const res = await Axios.get("http://localhost:8000/api/get");
+      const url = `${API_URL}/api/get`;
+
+      const res = await Axios.get(url);
       if (res) {
         setGet(res.data);
         console.log(res.data);
@@ -51,7 +56,8 @@ function EditDetails() {
   console.log(detailCategory);
 
   const SubmitName = (id) => {
-    Axios.put(`http://localhost:8000/api/update/text/${id}`, {
+    const url = `${API_URL}/api/update/text/${id}`;
+    Axios.put(url, {
       newName: newName,
     }).then((done, err) => {
       if (done) {
@@ -64,7 +70,9 @@ function EditDetails() {
     });
   };
   const SubmitPrice = (id) => {
-    Axios.put(`http://localhost:8000/api/update/text/${id}`, {
+    const url = `${API_URL}/api/update/text/${id}`;
+
+    Axios.put(url, {
       newPrice: newPrice,
     }).then((done, err) => {
       if (done) {
@@ -77,7 +85,9 @@ function EditDetails() {
     });
   };
   const SubmitDescription = (id) => {
-    Axios.put(`http://localhost:8000/api/update/text/${id}`, {
+    const url = `${API_URL}/api/update/text/${id}`;
+
+    Axios.put(url, {
       newDescription: newDescription,
     }).then((done, err) => {
       if (done) {
@@ -90,7 +100,9 @@ function EditDetails() {
     });
   };
   const SubmitCategoris = (id) => {
-    Axios.put(`http://localhost:8000/api/update/text/${id}`, {
+    const url = `${API_URL}/api/update/text/${id}`;
+
+    Axios.put(url, {
       newCategories: newCategories,
     }).then((done, err) => {
       if (done) {
@@ -106,17 +118,18 @@ function EditDetails() {
   const SubmitImg = (id) => {
     const formData = new FormData();
     formData.append("image", newImage);
-    Axios.put(`http://localhost:8000/api/update/img/${id}`, formData).then(
-      (done, err) => {
-        if (done) {
-          window.location.reload();
-          alert("Img Update Success");
-        } else {
-          alert("failed");
-          console.log(err);
-        }
+
+    const url = `${API_URL}/api/update/img/${id}`;
+
+    Axios.put(url, formData).then((done, err) => {
+      if (done) {
+        window.location.reload();
+        alert("Img Update Success");
+      } else {
+        alert("failed");
+        console.log(err);
       }
-    );
+    });
   };
 
   return (
@@ -264,7 +277,7 @@ function EditDetails() {
                   <div>
                     <img
                       style={{ borderRadius: "10px" }}
-                      src={`http://localhost:8000/uploads/${detailCategory.image}`}
+                      src={IMG_URL + detailCategory.image}
                       alt=""
                       height="40px"
                       width="40px"

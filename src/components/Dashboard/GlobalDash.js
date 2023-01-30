@@ -16,6 +16,8 @@ import UserContext from "../../context/UserContext";
 
 import Axios from "axios";
 
+import { API_URL } from "../../constants";
+
 import { io } from "socket.io-client";
 
 function GlobalDash() {
@@ -23,7 +25,7 @@ function GlobalDash() {
   const [notification, setNotification] = useState([]);
 
   useEffect(() => {
-    const socket = io("http://localhost:8000");
+    const socket = io(API_URL);
     socket.on("receive_oder", (data) => {
       setNotification((prev) => [...prev, data]);
       console.log(data.table.length);
@@ -42,7 +44,9 @@ function GlobalDash() {
   const [res, setRes] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:8000/api/get/oder")
+    const url = `${API_URL}/api/get/oder`;
+
+    Axios.get(url)
       .then((res) => {
         setRes(res.data);
         console.log(res.data);

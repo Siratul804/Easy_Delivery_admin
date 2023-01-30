@@ -4,6 +4,8 @@ import { Form, Button } from "react-bootstrap";
 import "../dash.css";
 import GlobalDash from "../GlobalDash";
 
+import { API_URL } from "../../../constants";
+
 function Review() {
   const [title, settitle] = useState("");
   const [description, setDescription] = useState("");
@@ -23,17 +25,17 @@ function Review() {
     formData.append("description", description);
     formData.append("categories", categories);
 
-    Axios.post("http://localhost:8000/api/admin/post/review", formData).then(
-      (done, err) => {
-        if (done) {
-          window.location.reload();
-          alert("Success");
-        } else {
-          alert("failed");
-          console.log(err);
-        }
+    const url = `${API_URL}/api/admin/post/review`;
+
+    Axios.post(url, formData).then((done, err) => {
+      if (done) {
+        window.location.reload();
+        alert("Success");
+      } else {
+        alert("failed");
+        console.log(err);
       }
-    );
+    });
   };
   return (
     <div className="create ">

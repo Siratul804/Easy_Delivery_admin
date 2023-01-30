@@ -11,12 +11,16 @@ import { ServerContext } from "../../../contex/ServerContext";
 
 import GlobalDash from "../GlobalDash";
 
+import { API_URL } from "../../../constants";
+
 function Edit() {
   const { get } = useContext(ServerContext);
   const [getValue] = get;
 
   const deleteFood = (id) => {
-    axios.delete(`http://localhost:8000/api/delete/${id}`);
+    const url = `${API_URL}/api/delete/${id}`;
+
+    axios.delete(url);
     window.location.reload();
   };
 

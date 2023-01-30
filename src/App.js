@@ -12,6 +12,8 @@ import ScrollToTop from "./ScrollToTop";
 
 import Loading from "./loading/Loading";
 
+import { API_URL } from "./constants";
+
 import Create from "./components/Dashboard/Food/Create";
 import Edit from "./components/Dashboard/Food/Edit";
 import Oder from "./components/Dashboard/Oder/Oder";
@@ -30,18 +32,15 @@ function App() {
         localStorage.setItem("auth-token", "");
         token = "";
       }
-      const tokenRes = await Axios.post(
-        "http://localhost:8000/api/admin/tokenIsValied",
-        null,
-        { headers: { "x-auth-token": token } }
-      );
+      const url = `${API_URL}/api/admin/tokenIsValied`;
+      const tokenRes = await Axios.post(url, null, {
+        headers: { "x-auth-token": token },
+      });
       if (tokenRes.data) {
-        const userRes = await Axios.get(
-          "http://localhost:8000/api/admin/getUser",
-          {
-            headers: { "x-auth-token": token },
-          }
-        );
+        const url = `${API_URL}/api/admin/getUser`;
+        const userRes = await Axios.get(url, {
+          headers: { "x-auth-token": token },
+        });
         setUserData({
           token,
           user: userRes.data,

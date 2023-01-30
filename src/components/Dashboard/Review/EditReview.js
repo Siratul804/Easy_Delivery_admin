@@ -6,6 +6,8 @@ import "../dash.css";
 
 import axios from "axios";
 
+import { API_URL } from "../../../constants";
+
 import { Scrollbars } from "react-custom-scrollbars-2";
 
 import GlobalDash from "../GlobalDash";
@@ -14,7 +16,9 @@ function EditReview() {
   const [get, setGet] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/get/review").then((res) => {
+    const url = `${API_URL}/api/get/review`;
+
+    axios.get(url).then((res) => {
       console.log(res.data);
       setGet(res.data);
     });
@@ -25,7 +29,9 @@ function EditReview() {
   }
 
   const deleteReview = (id) => {
-    axios.delete(`http://localhost:8000/api/delete/review/${id}`);
+    const url = `${API_URL}/api/delete/review/${id}`;
+
+    axios.delete(url);
     window.location.reload();
   };
 
