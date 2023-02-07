@@ -90,8 +90,8 @@ function GlobalDash() {
         </h5>
       </NavLink>
       <p></p>
-      <a
-        href="/oder"
+      <NavLink
+        to="/oder"
         className="dash_link p-2 "
         activeClassName="dash_link_active"
       >
@@ -108,7 +108,7 @@ function GlobalDash() {
           </span>
           <div>{notification.map((data) => displayNotification(data))}</div>
         </h5>
-      </a>
+      </NavLink>
       <p></p>
       <NavLink
         to="/reviews"
