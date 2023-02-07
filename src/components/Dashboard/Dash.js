@@ -98,13 +98,27 @@ function Dash() {
                 style={{ fontWeight: "bold" }}
               >
                 <Form.Label>categories : </Form.Label>
-                <Form.Control
+                <Form.Select
+                  aria-label="Default select example"
+                  value={categories}
                   onChange={(e) => {
                     setCategories(e.target.value);
                   }}
-                  type="text"
-                  placeholder="Enter Food Category"
-                />
+                >
+                  <option className="frm_option"></option>
+                  <option value="Burger" className="frm_option">
+                    Burger
+                  </option>
+                  <option value="Fries" className="frm_option">
+                    Fries
+                  </option>
+                  <option value="Sandwich" className="frm_option">
+                    Sandwich
+                  </option>
+                  <option value="Drinks" className="frm_option">
+                    Drinks
+                  </option>
+                </Form.Select>
               </Form.Group>
               <Form.Group
                 controlId="formFile"

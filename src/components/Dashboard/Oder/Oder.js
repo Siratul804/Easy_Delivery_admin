@@ -82,6 +82,7 @@ function Oder() {
                             <td className="text-light">No.{res.Table} </td>
                           </tr>
                         </tbody>
+                        <i className="text-info">{res.time}</i>
                       </Table>
 
                       <Button
